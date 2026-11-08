@@ -12,10 +12,7 @@ import org.springframework.security.web.context.SecurityContextRepository;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(
-            HttpSecurity http,
-            SecurityContextRepository repository)
-            throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, SecurityContextRepository repository) throws Exception {
 
         http
                 .csrf(csrf -> csrf.disable())
@@ -33,10 +30,8 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        .requestMatchers(
-                                "/api/auth/signup",
-                                "/api/auth/login"
-                        ).permitAll()
+                        .requestMatchers("/api/auth/signup", "/api/auth/login")
+                        .permitAll()
 
                         .requestMatchers("/api/admin/**")
                         .hasRole("ADMIN")

@@ -21,12 +21,9 @@ public class AppConfig {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(
-            UserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
 
-        DaoAuthenticationProvider provider =
-                new DaoAuthenticationProvider(userDetailsService);
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
 
         provider.setPasswordEncoder(passwordEncoder);
 
@@ -34,9 +31,7 @@ public class AppConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration configuration)
-            throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
 
         return configuration.getAuthenticationManager();
     }

@@ -23,37 +23,22 @@ public class AuthController {
 
     // SIGNUP
     @PostMapping("/signup")
-    public ResponseEntity<AuthResponse> signup(
-            @Valid @RequestBody SignupRequest request) {
+    public ResponseEntity<AuthResponse> signup(@Valid @RequestBody SignupRequest request) {
 
-        return ResponseEntity.ok(
-                authService.signup(request)
-        );
+        return ResponseEntity.ok(authService.signup(request));
     }
 
     // LOGIN
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(
-            @Valid @RequestBody LoginRequest request,
-            HttpServletRequest httpRequest,
-            HttpServletResponse httpResponse) {
+    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
 
-        return ResponseEntity.ok(
-                authService.login(
-                        request,
-                        httpRequest,
-                        httpResponse
-                )
-        );
+        return ResponseEntity.ok(authService.login(request, httpRequest, httpResponse));
     }
 
     // LOGOUT
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(
-            HttpServletRequest request) {
+    public ResponseEntity<String> logout(HttpServletRequest request) {
 
-        return ResponseEntity.ok(
-                authService.logout(request)
-        );
+        return ResponseEntity.ok(authService.logout(request));
     }
 }
