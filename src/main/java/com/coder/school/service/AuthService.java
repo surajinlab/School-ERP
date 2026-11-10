@@ -73,16 +73,14 @@ public class AuthService {
             HttpServletResponse httpResponse) {
 
         try {
-            Authentication authentication =
-                    authenticationManager.authenticate(
+            Authentication authentication = authenticationManager.authenticate(
                             new UsernamePasswordAuthenticationToken(
                                     request.username(),
                                     request.password()
                             )
                     );
 
-            SecurityContext context =
-                    SecurityContextHolder.createEmptyContext();
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
 
             context.setAuthentication(authentication);
 

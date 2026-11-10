@@ -20,10 +20,6 @@ public class CustomUserDetailsService
     public UserDetails loadUserByUsername(String username) {
 
         return repository.findByUsername(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException(
-                                "User not found: " + username
-                        )
-                );
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 }
