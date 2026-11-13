@@ -35,8 +35,9 @@ public class AppConfig {
         return configuration.getAuthenticationManager();
     }
 
-    @Bean
-    public SecurityContextRepository securityContextRepository() {
-        return new HttpSessionSecurityContextRepository();
-    }
+//    @Bean
+//    public SecurityContextRepository securityContextRepository() {
+//        return new HttpSessionSecurityContextRepository();
+//    }
+
 }
